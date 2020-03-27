@@ -15,7 +15,6 @@ const Logs = () => {
     setLoading(true);
     const res = await fetch("/logs");
     const data = await res.json();
-
     setLogs(data);
     setLoading(false);
   };
