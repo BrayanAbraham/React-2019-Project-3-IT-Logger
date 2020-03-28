@@ -1,4 +1,9 @@
-import { SET_LOADING, GET_TECHS, TECHS_ERROR } from "../actions/types";
+import {
+  SET_LOADING,
+  GET_TECHS,
+  TECHS_ERROR,
+  ADD_TECHS
+} from "../actions/types";
 
 const initialState = {
   techs: null,
@@ -14,7 +19,14 @@ export default (state = initialState, action) => {
         loading: false,
         techs: action.payload
       };
+    case ADD_TECHS:
+      return {
+        ...state,
+        loading: false,
+        techs: [...state.techs, action.payload]
+      };
     case TECHS_ERROR:
+      console.log(action.payload);
       return {
         ...state,
         error: action.payload
